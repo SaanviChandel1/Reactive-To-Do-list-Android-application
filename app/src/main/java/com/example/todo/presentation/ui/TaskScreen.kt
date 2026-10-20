@@ -117,7 +117,10 @@ fun TaskScreen(
                             items = uiState.tasks,
                             key = { it.id }
                         ) { task ->
-                            TaskItemCard(task = task)
+                            SwipeToDismissTaskItem(
+                                task = task,
+                                onDelete = { taskId -> viewModel.deleteTask(taskId) }
+                            )
                         }
                     }
                 }
